@@ -1,0 +1,152 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Facebook,
+  Instagram,
+  Youtube,
+  Linkedin,
+  Twitter,
+  MapPin,
+  Phone,
+  Mail,
+  Send,
+} from "lucide-react";
+
+export function Footer() {
+  return (
+    <footer className="bg-zinc-950 text-zinc-300">
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <Link href="/" className="block">
+              <span className="text-2xl font-extrabold text-[#FFD700]">
+                AdmissionPath4u
+              </span>
+            </Link>
+            <p className="text-zinc-400 leading-relaxed text-sm">
+              Your trusted partner in navigating the college admission journey.
+              We help you find the best colleges, courses, and scholarships
+              tailored to your career goals.
+            </p>
+            <div className="flex space-x-4">
+              <SocialLink href="#" icon={Facebook} />
+              <SocialLink href="#" icon={Instagram} />
+              <SocialLink href="#" icon={Twitter} />
+              <SocialLink href="#" icon={Linkedin} />
+              <SocialLink href="#" icon={Youtube} />
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-bold text-white mb-6">Quick Links</h4>
+            <ul className="space-y-3 text-sm">
+              <FooterLink href="/">Home</FooterLink>
+              <FooterLink href="/about">About Us</FooterLink>
+              <FooterLink href="/colleges">Colleges</FooterLink>
+              <FooterLink href="/exams">Exams</FooterLink>
+              <FooterLink href="/blogs">Blogs</FooterLink>
+              <FooterLink href="/contact">Contact Us</FooterLink>
+            </ul>
+          </div>
+
+          {/* Popular Courses */}
+          <div>
+            <h4 className="text-lg font-bold text-white mb-6">
+              Popular Courses
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <FooterLink href="/colleges?course=B.Tech">
+                B.Tech Engineering
+              </FooterLink>
+              <FooterLink href="/colleges?course=MBA">MBA / PGDM</FooterLink>
+              <FooterLink href="/colleges?course=MBBS">MBBS Medical</FooterLink>
+              <FooterLink href="/colleges?course=BBA">
+                BBA Management
+              </FooterLink>
+              <FooterLink href="/colleges?course=Law">Law (LLB/LLM)</FooterLink>
+              <FooterLink href="/colleges?course=Design">
+                Design & Fashion
+              </FooterLink>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-lg font-bold text-white mb-6">Contact Us</h4>
+            <ul className="space-y-6 text-sm">
+              <li className="flex items-start gap-3 text-zinc-400">
+                <MapPin className="w-5 h-5 text-[#800000] mt-0.5 shrink-0" />
+                <span>
+                  GF-090, Migsun Galleria, Sector 27
+                  <br />
+                  Greater Noida, Uttar Pradesh - 201306
+                </span>
+              </li>
+              <li className="flex items-center gap-3 text-zinc-400">
+                <Phone className="w-5 h-5 text-[#800000] shrink-0" />
+                <span>+91 96505 01173</span>
+              </li>
+              <li className="flex items-center gap-3 text-zinc-400">
+                <Mail className="w-5 h-5 text-[#800000] shrink-0" />
+                <span>info@admissionpath4u.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="bg-black py-6 border-t border-zinc-900">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+          <p>© 2024 AdmissionPath4u. All rights reserved.</p>
+          <div className="flex space-x-6">
+            <Link
+              href="/privacy"
+              className="hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Terms of Service
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function SocialLink({ href, icon: Icon }: { href: string; icon: any }) {
+  return (
+    <Link
+      href={href}
+      className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-[#800000] hover:text-white hover:border-[#800000] transition-all duration-300"
+    >
+      <Icon className="w-4 h-4" />
+    </Link>
+  );
+}
+
+function FooterLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <li>
+      <Link
+        href={href}
+        className="text-zinc-400 hover:text-white hover:pl-1 transition-all duration-300 block"
+      >
+        {children}
+      </Link>
+    </li>
+  );
+}
